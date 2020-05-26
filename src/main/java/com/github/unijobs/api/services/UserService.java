@@ -28,4 +28,22 @@ public class UserService {
     public Optional<User> findOne(long id){
         return  userRepository.findById(id);
     }
+
+    public User update(User user) {
+        Optional<User> optionalUser = this.findOne(user.getId());
+
+        if (optionalUser.isPresent()){
+            return this.save(user);
+        }else {
+            return null;
+        }
+    }
+
+    public void delete(Long id) {
+        Optional<User> optionalUser = this.findOne(id);
+
+        if (optionalUser.isPresent()){
+            userRepository.deleteById(id);
+        }
+    }
 }
