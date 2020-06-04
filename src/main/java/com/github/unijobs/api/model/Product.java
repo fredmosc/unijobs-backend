@@ -4,52 +4,19 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="products")
-public class Product {
+public class Product extends Item{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String title;
-    private String description;
-    private String category;
-    private int price;
+    private Double price;
 
-    public long getId() {
-        return id;
-    }
+    public long getId() { return id; }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    public void setId(long id) { this.id = id; }
 
-    public String getTitle() {
-        return title;
-    }
+    public Double getPrice() { return price; }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 }
