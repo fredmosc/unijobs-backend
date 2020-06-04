@@ -24,6 +24,11 @@ public class CategoryController {
         return ResponseEntity.ok(categoryService.save(product));
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Category> update(@PathVariable Long id, @RequestBody Category category) {
+        return ResponseEntity.ok(categoryService.update(category));
+    }
+
     @GetMapping
     public ResponseEntity<List<Category>> list() {
         return ResponseEntity.ok(categoryService.findAll());

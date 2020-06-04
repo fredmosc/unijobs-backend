@@ -24,4 +24,8 @@ public class CategoryService {
     public Category save(Category category) {
         return categoryRepository.save(category);
     }
+
+    public Category update (Category category) {
+        return categoryRepository.save(category);
+    }
 }
