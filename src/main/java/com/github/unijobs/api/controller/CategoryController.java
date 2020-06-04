@@ -19,10 +19,10 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-//    @PostMapping
-//    public ResponseEntity<Category> save(@RequestBody Category product){
-//        return ResponseEntity.ok(categoryService.save(product));
-//    }
+    @PostMapping
+    public ResponseEntity<Category> save(@RequestBody Category product){
+        return ResponseEntity.ok(categoryService.save(product));
+    }
 
     @GetMapping
     public ResponseEntity<List<Category>> list() {
