@@ -3,20 +3,20 @@ package com.github.unijobs.api.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="products")
-public class Product extends Item{
+@Table(name="services")
+public class Service extends Item {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private Double price;
+
+    private String investment;
 
     public long getId() { return id; }
 
     public void setId(long id) { this.id = id; }
 
-    public Double getPrice() { return price; }
+    public String getInvestment() { return investment; }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+    public void setInvestment(String investment) { this.investment = investment; }
 }
