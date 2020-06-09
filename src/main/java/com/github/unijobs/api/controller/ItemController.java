@@ -25,11 +25,7 @@ public class ItemController {
 //    }
 
     @GetMapping
-    public ResponseEntity<List<Item>> list(@RequestParam(required = false) String latest){
-        if (latest != null) {
-            return ResponseEntity.ok(itemService.latest());
-        }
+    public ResponseEntity<List<Item>> list(){
         return ResponseEntity.ok(itemService.findAll());
     }
-
 }

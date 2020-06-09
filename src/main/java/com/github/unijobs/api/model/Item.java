@@ -2,6 +2,7 @@ package com.github.unijobs.api.model;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
+import java.sql.Date;
 import java.util.List;
 
 @MappedSuperclass
@@ -16,21 +17,47 @@ public class Item {
     @OneToMany
     private List<Category> categories;
 
-    public String getDescription() { return description; }
+    private Date dataCriacao;
 
-    public void setDescription(String description) { this.description = description; }
+    public Date getDataCriacao() {
+        return dataCriacao;
+    }
 
-    public String getFeaturedImage() { return featuredImage; }
+    public void setDataCriacao(Date dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
 
-    public void setFeaturedImage(String featuredImage) { this.featuredImage = featuredImage; }
+    public String getDescription() {
+        return description;
+    }
 
-    public String getName() { return name; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public String getFeaturedImage() {
+        return featuredImage;
+    }
 
-    public List<Category> getCategories() { return categories; }
+    public void setFeaturedImage(String featuredImage) {
+        this.featuredImage = featuredImage;
+    }
 
-    public void setCategories(List<Category> categories) { this.categories = categories; }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 
 
 }

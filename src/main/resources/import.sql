@@ -3,12 +3,12 @@ INSERT INTO public.categories (id, category_type, icon, name) VALUES (1, 'SERVIC
 INSERT INTO public.categories (id, category_type, icon, name) VALUES (2, 'PRODUCT', 'fas fa-plus', 'Alimentação');
 
 -- Services
-INSERT INTO public.services (id, description, featured_image, name, investment) VALUES (1, 'Lavamos com água e sabão seu PC! Brilhando e cheiroso.', 'https://dummyimage.com/300.png/09f/fff', 'Manutenção de Computadores', 'Faça um orçamento!');
-INSERT INTO public.services (id, description, featured_image, name, investment) VALUES (2, 'Seu amigo estará lendo Nietzsche rapidinho!', 'https://dummyimage.com/300.png/09f/fff', 'Alfabetização de Cachorros', 'R$ 180,00/hora');
+INSERT INTO public.services (id, description, featured_image, name, investment, data_criacao) VALUES (1, 'Lavamos com água e sabão seu PC! Brilhando e cheiroso.', 'https://dummyimage.com/300.png/09f/fff', 'Manutenção de Computadores', 'Faça um orçamento!', '2020-03-22 10:45:00');
+INSERT INTO public.services (id, description, featured_image, name, investment, data_criacao) VALUES (2, 'Seu amigo estará lendo Nietzsche rapidinho!', 'https://dummyimage.com/300.png/09f/fff', 'Alfabetização de Cachorros', 'R$ 180,00/hora', '2020-03-22 10:43:00');
 
 -- Products
-INSERT INTO public.products (id, description, featured_image, name, price) VALUES (1, 'Para quando estiver sozinho', 'https://dummyimage.com/300.png/09f/fff', 'Coçador de Costas', 35.95);
-INSERT INTO public.products (id, description, featured_image, name, price) VALUES (2, 'Dieta começa segunda-feira', 'https://dummyimage.com/300.png/09f/fff', 'Brownie', 4.98);
+INSERT INTO public.products (id, description, featured_image, name, price, data_criacao) VALUES (1, 'Para quando estiver sozinho', 'https://dummyimage.com/300.png/09f/fff', 'Coçador de Costas', 35.95, '2020-04-05 10:22:55');
+INSERT INTO public.products (id, description, featured_image, name, price, data_criacao) VALUES (2, 'Dieta começa segunda-feira', 'https://dummyimage.com/300.png/09f/fff', 'Brownie', 4.98, '2020-06-08 06:49:45');
 
 -- Categories X Products, Services
 INSERT INTO public.services_categories VALUES (1,1);
