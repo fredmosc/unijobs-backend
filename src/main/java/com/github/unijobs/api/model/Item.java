@@ -1,8 +1,10 @@
 package com.github.unijobs.api.model;
 
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+@MappedSuperclass
 public class Item {
 
     private String description;
