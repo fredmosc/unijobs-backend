@@ -1,5 +1,9 @@
 package com.github.unijobs.api.model;
 
+import org.hibernate.annotations.Cascade;
+
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToMany;
 import java.sql.Date;
@@ -14,7 +18,7 @@ public class Item {
 
     private String name;
 
-    @OneToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Category> categories;
 
     private Date dataCriacao;
