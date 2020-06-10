@@ -1,0 +1,125 @@
+### CATEGORIES ##############################################
+### create
+POST http://localhost:8080/categories
+Content-Type: application/json
+
+{
+  "categoryType": "PRODUCT",
+  "icon": "fas fa-plus",
+  "name": "Eletrônico"
+}
+
+<> 2020-06-10T024503.400.json
+
+### index
+GET http://localhost:8080/categories
+
+{}
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### update
+PUT http://localhost:8080/categories/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Bugiganga",
+  "icon": "fas fa-plus",
+  "categoryType": "PRODUCT"
+}
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.body.name === "Bugiganga", "Retorno não está correto");
+});
+%}
+
+### update -- Trocando de Type
+PUT http://localhost:8080/categories/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Bugiganga",
+  "icon": "fas fa-plus",
+  "categoryType": "PRODUCT"
+}
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.body.categoryType === "PRODUCT", "Categoria não está sendo trocada");
+});
+%}
+###
+PUT http://localhost:8080/categories/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "categoryType": "PRODUCT",
+  "icon": "fas fa-plus",
+  "name": "Eletrônico"
+}
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+##############
+
+### SERVICES #############################################
+### create
+POST http://localhost:8080/services
+Content-Type: application/json
+
+{
+  "investment": "Várias parcelas infinitas",
+  "description": "foobar",
+  "featuredImage": "foobar",
+  "name": "foobar",
+  "categories": [
+    {
+      "name": "Eletrônico Pendrive",
+      "icon": "fas fa-plus",
+      "categoryType": "PRODUCT"
+    }
+  ]
+}
+
+<> 2020-06-10T024503.400.json
+
+### index
+GET http://localhost:8080/services
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+%}
+
+### show
+GET http://localhost:8080/services/2
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.body !== null, "Response is empty");
+});
+%}
+
+######################################################
+
+
+### ITEMS ################################################
+
+### index
+GET http://localhost:8080/items
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.body !== null, "Response body is empty");
+});
+%}
+
+######################################################
