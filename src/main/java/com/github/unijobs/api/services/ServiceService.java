@@ -1,10 +1,12 @@
 package com.github.unijobs.api.services;
 
+import com.github.unijobs.api.dto.ServiceDTO;
 import com.github.unijobs.api.model.Service;
 import com.github.unijobs.api.repository.ServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 @org.springframework.stereotype.Service
 public class ServiceService {
@@ -24,5 +26,9 @@ public class ServiceService {
         serviceRepository.save(service);
 
         return service;
+    }
+
+    public Optional<Service> findOne(Long id) {
+        return serviceRepository.findById(id);
     }
 }

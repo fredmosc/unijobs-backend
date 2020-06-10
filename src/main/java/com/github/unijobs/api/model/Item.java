@@ -1,12 +1,12 @@
 package com.github.unijobs.api.model;
 
-import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToMany;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 
 @MappedSuperclass
@@ -15,20 +15,18 @@ public class Item {
     private String description;
 
     private String featuredImage;
-
     private String name;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Category> categories;
 
-    private Date dataCriacao;
+    @CreationTimestamp
+    @Column(insertable = false, updatable = false)
+    // FIXME: usando PUT, se createdAt é null, vai null pro banco
+    private Timestamp createdAt;
 
-    public Date getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(Date dataCriacao) {
-        this.dataCriacao = dataCriacao;
+    public Timestamp getCreatedAt() {
+        return createdAt;
     }
 
     public String getDescription() {

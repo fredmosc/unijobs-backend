@@ -31,7 +31,7 @@ public class ItemRepository {
 
         Collections.sort(items, new Comparator<Item>() {
             public int compare(Item o1, Item o2) {
-                return o2.getDataCriacao().compareTo(o1.getDataCriacao());
+                return o2.getCreatedAt().compareTo(o1.getCreatedAt());
             }
         });
         return items;
