@@ -1,34 +1,64 @@
 package com.github.unijobs.api.model;
 
-import javax.persistence.OneToMany;
+import org.hibernate.annotations.CreationTimestamp;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ManyToMany;
+import javax.persistence.MappedSuperclass;
+import java.sql.Timestamp;
 import java.util.List;
 
+@MappedSuperclass
 public class Item {
 
     private String description;
 
     private String featuredImage;
-
     private String name;
 
-    @OneToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     private List<Category> categories;
 
-    public String getDescription() { return description; }
+    @CreationTimestamp
+    @Column(nullable = false, updatable = false)
+    private Timestamp createdAt;
 
-    public void setDescription(String description) { this.description = description; }
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
 
-    public String getFeaturedImage() { return featuredImage; }
+    public String getDescription() {
+        return description;
+    }
 
-    public void setFeaturedImage(String featuredImage) { this.featuredImage = featuredImage; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public String getName() { return name; }
+    public String getFeaturedImage() {
+        return featuredImage;
+    }
 
-    public void setName(String name) { this.name = name; }
+    public void setFeaturedImage(String featuredImage) {
+        this.featuredImage = featuredImage;
+    }
 
-    public List<Category> getCategories() { return categories; }
+    public String getName() {
+        return name;
+    }
 
-    public void setCategories(List<Category> categories) { this.categories = categories; }
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 
 
 }

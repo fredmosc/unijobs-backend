@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,13 +13,17 @@ public class User {
     private String email;
     private String password;
     private int registroAcademico;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Product> products;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Service> services;
+
+    public List<Service> getServices() { return services; }
+    public void setServices(List<Service> services) { this.services = services; }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -27,7 +31,6 @@ public class User {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -35,7 +38,6 @@ public class User {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -43,7 +45,6 @@ public class User {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -51,7 +52,6 @@ public class User {
     public int getRegistroAcademico() {
         return registroAcademico;
     }
-
     public void setRegistroAcademico(int registroAcademico) {
         this.registroAcademico = registroAcademico;
     }
@@ -59,7 +59,6 @@ public class User {
     public List<Product> getProducts() {
         return products;
     }
-
     public void setProducts(List<Product> products) {
         this.products = products;
     }

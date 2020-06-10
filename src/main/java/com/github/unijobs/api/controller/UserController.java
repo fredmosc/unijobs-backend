@@ -1,5 +1,7 @@
 package com.github.unijobs.api.controller;
 
+
+import com.github.unijobs.api.dto.UserDTO;
 import com.github.unijobs.api.model.User;
 import com.github.unijobs.api.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    private  final UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
@@ -25,24 +27,29 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> list(){
-        return ResponseEntity.ok(userService.findAll());
+    @ResponseBody
+    public List<UserDTO> list() {
+        return userService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<User>> findById(@PathVariable Long id){
+    public ResponseEntity<Optional<User>> findById(@PathVariable Long id) {
         return ResponseEntity.ok(userService.findOne(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<User> update(@RequestBody User user){
+    public ResponseEntity<User> update(@RequestBody User user) {
         return ResponseEntity.ok(userService.update(user));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Long id){
+    public ResponseEntity<?> delete(@PathVariable Long id) {
         userService.delete(id);
         return ResponseEntity.ok(null);
     }
 
+    @GetMapping("/{id}/items")
+    public ResponseEntity<Optional<User>> items(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.findOneWithItems(id));
+    }
 }
