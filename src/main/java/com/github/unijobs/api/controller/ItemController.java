@@ -1,7 +1,6 @@
 package com.github.unijobs.api.controller;
 
 import com.github.unijobs.api.model.Item;
-import com.github.unijobs.api.model.Service;
 import com.github.unijobs.api.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
