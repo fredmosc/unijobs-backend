@@ -1,5 +1,6 @@
 package com.github.unijobs.api.model;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -8,13 +9,13 @@ public class Service extends Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     private String investment;
 
-    public long getId() { return id; }
+    public Long getId() { return id; }
 
-    public void setId(long id) { this.id = id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getInvestment() { return investment; }
 
