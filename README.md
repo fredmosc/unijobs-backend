@@ -5,5 +5,5 @@
 2. UML: [link](docs/UML.jpeg)
 
 ## TODO:
-[ ] Categories PATCH
+- [x] Categories PATCH
 
