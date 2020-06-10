@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/categories")
@@ -32,5 +33,16 @@ public class CategoryController {
     @GetMapping
     public ResponseEntity<List<Category>> list() {
         return ResponseEntity.ok(categoryService.findAll());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Category>> findOne(@PathVariable Long id) {
+        return ResponseEntity.ok(categoryService.findOne(id));
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable Long id) {
+        categoryService.delete(id);
+        return ResponseEntity.ok(null);
     }
 }
