@@ -5,6 +5,7 @@ import com.github.unijobs.api.dto.UserDTO;
 import com.github.unijobs.api.model.User;
 import com.github.unijobs.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -49,5 +50,11 @@ public class UserService {
         if (optionalUser.isPresent()) {
             userRepository.deleteById(id);
         }
+    }
+
+    public Optional<User> findOneWithItems(Long id) {
+        Optional<User> user = userRepository.findById(id);
+
+        return user;
     }
 }

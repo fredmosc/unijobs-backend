@@ -48,4 +48,8 @@ public class UserController {
         return ResponseEntity.ok(null);
     }
 
+    @GetMapping("/{id}/items")
+    public ResponseEntity<Optional<User>> items(@PathVariable Long id) {
+        return ResponseEntity.ok(userService.findOneWithItems(id));
+    }
 }
