@@ -38,7 +38,7 @@ public class ServiceController {
 
     @PatchMapping("{id}")
     // https://stackoverflow.com/a/33467045
-    public ResponseEntity<Service> update(@RequestBody ServiceDTO serviceDTO) {
+    public ResponseEntity<Optional<Service>> update(@RequestBody ServiceDTO serviceDTO) {
         return new ResponseEntity<>(serviceService.saveDTO(serviceDTO), HttpStatus.OK);
 
     }

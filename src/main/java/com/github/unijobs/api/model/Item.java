@@ -21,8 +21,7 @@ public class Item {
     private List<Category> categories;
 
     @CreationTimestamp
-    @Column(insertable = false, updatable = false)
-    // FIXME: usando PUT, se createdAt é null, vai null pro banco
+    @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
 
     public Timestamp getCreatedAt() {
