@@ -13,7 +13,6 @@ import java.util.List;
 public class ServiceController {
     private final ServiceService serviceService;
 
-
     @Autowired
     public ServiceController(ServiceService serviceService) {
         this.serviceService = serviceService;
