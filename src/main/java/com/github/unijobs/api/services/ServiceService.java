@@ -22,7 +22,9 @@ public class ServiceService {
         return serviceRepository.findAll();
     }
 
-    public Service save(Service service) {
+    public Service saveDTO(ServiceDTO serviceDTO) {
+        Service service = new Service(serviceDTO.getId(), serviceDTO.getInvestment());
+        
         serviceRepository.save(service);
 
         return service;
@@ -30,5 +32,11 @@ public class ServiceService {
 
     public Optional<Service> findOne(Long id) {
         return serviceRepository.findById(id);
+    }
+
+    public Service save(Service service) {
+       serviceRepository.save(service);
+
+       return service;
     }
 }

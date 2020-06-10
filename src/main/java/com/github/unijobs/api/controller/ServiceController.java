@@ -4,6 +4,7 @@ import com.github.unijobs.api.dto.ServiceDTO;
 import com.github.unijobs.api.model.Service;
 import com.github.unijobs.api.services.ServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +38,8 @@ public class ServiceController {
 
     @PatchMapping("{id}")
     // https://stackoverflow.com/a/33467045
-    public ResponseEntity<Service> update(@RequestBody Service service) {
-        return ResponseEntity.ok(serviceService.save(service));
+    public ResponseEntity<Service> update(@RequestBody ServiceDTO serviceDTO) {
+        return new ResponseEntity<>(serviceService.saveDTO(serviceDTO), HttpStatus.OK);
+
     }
 }

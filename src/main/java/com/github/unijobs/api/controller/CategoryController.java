@@ -3,6 +3,7 @@ package com.github.unijobs.api.controller;
 import com.github.unijobs.api.model.Category;
 import com.github.unijobs.api.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class CategoryController {
 
     @PostMapping
     public ResponseEntity<Category> save(@RequestBody Category product){
-        return ResponseEntity.ok(categoryService.save(product));
+        return new ResponseEntity<>(categoryService.save(product), HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
