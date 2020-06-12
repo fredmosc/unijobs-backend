@@ -1,5 +1,7 @@
 package com.github.unijobs.api.model;
 
+import com.github.unijobs.api.auth.credentials.model.Credentials;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,11 +14,22 @@ public class User {
     private String name;
     private String email;
     private String password;
-    private int registroAcademico;
+    private String registroAcademico;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Product> products;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Service> services;
+
+    @OneToOne
+    private Credentials credentials;
+
+    public Credentials getCredentials() {
+        return credentials;
+    }
+
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
+    }
 
     public List<Service> getServices() { return services; }
     public void setServices(List<Service> services) { this.services = services; }
@@ -49,10 +62,10 @@ public class User {
         this.email = email;
     }
 
-    public int getRegistroAcademico() {
+    public String getRegistroAcademico() {
         return registroAcademico;
     }
-    public void setRegistroAcademico(int registroAcademico) {
+    public void setRegistroAcademico(String registroAcademico) {
         this.registroAcademico = registroAcademico;
     }
 
