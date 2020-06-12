@@ -2,10 +2,7 @@ package com.github.unijobs.api.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.ManyToMany;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -16,16 +13,37 @@ public class Item {
 
     private String featuredImage;
     private String name;
-
+    private String specifications;
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Category> categories;
-
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Image> images;
+
+    public String getSpecifications() {
+        return specifications;
+    }
+
+    public void setSpecifications(String specifications) {
+        this.specifications = specifications;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
 
     public Timestamp getCreatedAt() {
         return createdAt;
+    }
+
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
     }
 
     public String getDescription() {
