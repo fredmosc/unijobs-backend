@@ -9,8 +9,10 @@ import java.util.List;
 @MappedSuperclass
 public class Item {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
     private String description;
-
     private String featuredImage;
     private String name;
     private String specifications;
@@ -21,6 +23,14 @@ public class Item {
     private Timestamp createdAt;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Image> images;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getSpecifications() {
         return specifications;
