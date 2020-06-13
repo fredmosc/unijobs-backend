@@ -1,6 +1,7 @@
 package com.github.unijobs.api.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="products")
