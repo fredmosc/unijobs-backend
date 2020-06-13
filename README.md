@@ -5,5 +5,5 @@
 2. UML: [link](docs/UML.jpeg)
 
 ## TODO:
-- [x] Categories PATCH
+Listados nas [Issues](issues)
 
