@@ -1,13 +1,13 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/unijobs_database
-    username: postgres
-    password: postgres
+server:
+  port: 8090
+  servlet:
+    context-path: /api
 
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
+jwt:
+  secret: mztKH2Kgx0taIS7ZzPTh60559eCZ3HbK
+  expiration: 86400000
+
+spring:
+  profiles:
+    include: security
+    active: ${API_ENV:development}
